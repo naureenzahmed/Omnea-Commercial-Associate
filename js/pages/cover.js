@@ -6,7 +6,7 @@ export function renderCover(container) {
   const pages = buildManifest(data);
 
   container.innerHTML = `
-    <div class="page-title">Canadian GTM</div>
+    <div class="page-title">Omnea Commercial</div>
     <div class="section-desc" style="margin-top:-14px; margin-bottom: 20px;">Jump to any page or section below.</div>
     <div class="cover-grid">
       ${pages.map((p) => `

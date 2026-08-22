@@ -2,10 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "chief-of-staff",
+      "name": "omnea-commercial",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["dev-server.py", "8123"],
-      "port": 8123
+      "runtimeArgs": ["dev-server.py", "8124"],
+      "port": 8124
     }
   ]
 }
