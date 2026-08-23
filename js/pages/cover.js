@@ -29,6 +29,12 @@ function buildManifest(data) {
       key: 'documentation', label: 'Documentation',
       subsections: data.docs.map((s) => ({ id: s.id, label: s.title })),
     },
+    { key: 'territoryManagement', label: 'Territory Management', subsections: [] },
+    { key: 'inboundLeads', label: 'Inbound Leads', subsections: [] },
+    {
+      key: 'paidConversions', label: 'Paid Conversions',
+      subsections: data.paidConversions.filter((s) => !s.isIntro).map((s) => ({ id: s.id, label: s.title })),
+    },
     {
       key: 'roadmap', label: 'Roadmap',
       subsections: [
@@ -43,23 +49,6 @@ function buildManifest(data) {
         { id: 'metrics-log', label: 'Monthly Log' },
         { id: 'metrics-cards', label: 'Tracked Goals' },
       ],
-    },
-    {
-      key: 'paidConversions', label: 'Paid Conversions',
-      subsections: data.paidConversions.filter((s) => !s.isIntro).map((s) => ({ id: s.id, label: s.title })),
-    },
-    { key: 'inboundLeads', label: 'Inbound Leads', subsections: [] },
-    {
-      key: 'operations', label: 'Team Management',
-      subsections: [
-        { id: 'ops-milestones', label: 'Key Milestones' },
-        { id: 'ops-availability', label: 'Availability' },
-        { id: 'ops-teams', label: 'Team Composition' },
-      ],
-    },
-    {
-      key: 'recruitment', label: 'Recruitment',
-      subsections: data.recruitment.filter((s) => !s.isIntro).map((s) => ({ id: s.id, label: s.title })),
     },
   ];
 }

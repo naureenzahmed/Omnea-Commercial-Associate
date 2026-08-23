@@ -1,22 +1,20 @@
 import { getData, commit } from './store.js';
 import { renderCover } from './pages/cover.js';
 import { renderDocumentation } from './pages/documentation.js';
+import { renderTerritoryManagement } from './pages/territoryManagement.js';
 import { renderRoadmap } from './pages/roadmap.js';
-import { renderOperations } from './pages/operations.js';
 import { renderMetrics } from './pages/metrics.js';
 import { renderPaidConversions } from './pages/paidConversions.js';
 import { renderInboundLeads } from './pages/inboundLeads.js';
-import { renderRecruitment } from './pages/recruitment.js';
 
 const PAGES = {
   home: { label: 'Home', render: renderCover },
   documentation: { label: 'Documentation', render: renderDocumentation },
+  territoryManagement: { label: 'Territory Management', render: renderTerritoryManagement },
+  inboundLeads: { label: 'Inbound Leads', render: renderInboundLeads },
+  paidConversions: { label: 'Paid Conversions', render: renderPaidConversions },
   roadmap: { label: 'Roadmap', render: renderRoadmap },
   metrics: { label: 'Metrics', render: renderMetrics },
-  paidConversions: { label: 'Paid Conversions', render: renderPaidConversions },
-  inboundLeads: { label: 'Inbound Leads', render: renderInboundLeads },
-  operations: { label: 'Team Management', render: renderOperations },
-  recruitment: { label: 'Recruitment', render: renderRecruitment },
 };
 
 function currentRoute() {

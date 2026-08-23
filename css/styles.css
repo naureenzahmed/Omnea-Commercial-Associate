@@ -269,7 +269,7 @@ table.list-table tr:hover td { background: var(--bg-raised); cursor: pointer; }
   color: var(--text-faint); font-size: 12px; padding: 6px 10px;
 }
 
-/* ---------- Grid layouts (OKR, Operations, Metrics) ---------- */
+/* ---------- Grid layouts (OKR, Metrics) ---------- */
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
 @media (max-width: 1000px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
@@ -492,7 +492,7 @@ a.doc-title:hover { text-decoration: underline; }
 .cal-filter-team-label .team-dot { flex-shrink: 0; }
 .cal-filter-col .cal-checkbox-row { padding-left: 4px; }
 
-/* ---------- Tracker pages (Paid Conversions / Recruitment) ---------- */
+/* ---------- Tracker pages (Paid Conversions) ---------- */
 .page-intro { color: var(--text-dim); font-size: 13px; line-height: 1.6; }
 .page-intro p:last-child { margin-bottom: 0 !important; }
 
