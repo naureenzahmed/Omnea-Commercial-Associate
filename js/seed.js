@@ -1,12 +1,5 @@
 import { addDays, todayISO, uid } from './utils.js';
 
-function mkClubs(names) {
-  return names.map((name) => ({
-    id: uid('club'), name, goal: '', theyGet: '', weGet: '',
-    progressCurrent: 0, progressTarget: 100, eventDate: '', partnershipDate: '',
-  }));
-}
-
 export const TEAMS = [
   { id: 'team-a', name: 'Team A', color: '#6c8cff' },
   { id: 'team-b', name: 'Team B', color: '#ef6f6c' },
@@ -257,115 +250,6 @@ function seedPaidConversions() {
   ];
 }
 
-function seedRecruitment() {
-  return [
-    {
-      id: 'rec-schools',
-      title: 'School Partnerships',
-      entities: [
-        { name: 'MIT', links: mkClubs(['MIT Driverless']) },
-        { name: 'Waterloo', links: mkClubs(['Coop Programs', 'Socratica', 'Design Teams', 'WATonomous', 'WAT.ai']) },
-        { name: 'UBC', links: mkClubs(['UBC Thunderbots']) },
-        { name: 'UofT', links: mkClubs(['UTMIST']) },
-        { name: 'McGill', links: mkClubs(['McGill Ventures', 'McHacks', 'NOBE McGill', 'JEG Consulting', 'Nord Consulting', 'MES']) },
-        { name: 'McMaster', links: mkClubs(['DeltaHacks', 'McMaster AI Society', 'McMaster Robotics']) },
-        { name: 'TMU', links: mkClubs(['Hack the 6ix', 'TMU AI']) },
-        { name: 'Simon Fraser', links: mkClubs(['SFU Surge', 'SFU AI Club']) },
-        { name: 'Western', links: mkClubs(['Hack Western', 'Ivey FinTech Club']) },
-        { name: 'Queen’s', links: mkClubs([]) },
-        { name: 'Concordia', links: mkClubs(['ConUHacks', 'Space Concordia', 'District 3']) },
-      ],
-      metrics: [
-        { id: 'm1', label: 'Leads (#)', target: 10, values: {} },
-        { id: 'm2', label: 'Interview Booked (%)', target: '1%', values: {} },
-        { id: 'm3', label: 'Interview Booked (#)', target: 5, values: {} },
-      ],
-    },
-    {
-      id: 'rec-sponsorships',
-      title: 'Event Sponsorships',
-      metrics: [
-        { id: 'm1', label: 'Budget', target: '$1,000 / in-kind / intros', values: {} },
-        { id: 'm2', label: 'Our interest', target: 'Videos, talent', values: {} },
-        { id: 'm3', label: 'Type of talent', target: 'Eng / Ops / Sales', values: {} },
-        { id: 'm4', label: 'Number of events', note: 'Look at hiring from that same level of talent.', target: null, values: {} },
-        { id: 'm5', label: 'Demographic reached', target: null, values: {} },
-        { id: 'm6', label: 'Leads (#)', target: '40 per event', values: {} },
-        { id: 'm7', label: 'Interview Booked (%)', target: '75%', values: {} },
-        { id: 'm8', label: 'Interview Booked (#)', target: '15 per event', values: {} },
-      ],
-    },
-    {
-      id: 'rec-attendance',
-      title: 'Event Attendance',
-      entities: [
-        { name: 'Socratica Symposium', links: [] },
-        { name: 'GenAI Genesis', links: [] },
-        { name: 'Hack the North', links: [] },
-        { name: 'MILA ALL-IN', links: [] },
-      ],
-      metrics: [
-        { id: 'm1', label: 'Leads (#)', target: 100, values: {} },
-        { id: 'm2', label: 'Interview Booked (%)', target: '20%', values: {} },
-        { id: 'm3', label: 'Interview Booked (#)', target: 20, values: {} },
-      ],
-    },
-    {
-      id: 'rec-partnerships',
-      title: 'Partnership Events',
-      entities: [
-        { name: 'Mecka AI', note: 'Recruit same level of talent' },
-        { name: 'Rootly', note: '' },
-        { name: 'Turbopuffer', note: 'Strong technical talent, able to work under pressure' },
-        { name: 'Nationgraph', note: '' },
-        { name: 'Cambridge', note: 'New avenues of growth and sales skills' },
-        { name: 'Shopify', note: '' },
-        { name: 'Gumloop', note: '' },
-        { name: 'Sanctuary AI', note: '' },
-      ],
-      metrics: [
-        { id: 'm1', label: 'Leads (#)', target: '40 per event', values: {} },
-        { id: 'm2', label: 'Interview Booked (%)', target: '37.5%', values: {} },
-        { id: 'm3', label: 'Interview Booked (#)', target: '15 per event', values: {} },
-      ],
-    },
-    {
-      id: 'rec-companies',
-      title: 'Companies to Track Employees',
-      note: 'Companies with a similar culture and ambition in the industry. There’s a lot of overlap and the right industry backgrounds. As these companies get significantly larger, employees lose ownership — Omnea can offer all the benefits these companies provide, on top of responsibility and ownership.',
-      entities: [
-        { name: 'Sanctuary AI', links: [] },
-        { name: 'Waabi', links: [] },
-        { name: 'Stan', links: [] },
-        { name: 'Gumloop', links: [] },
-        { name: 'Float Financial', links: [] },
-        { name: 'Venn', links: [] },
-        { name: 'Botpress', links: [] },
-        { name: 'Planned', links: [] },
-        { name: 'Deck', links: [] },
-        { name: 'Rootly', links: [] },
-        { name: 'Shopify', links: [] },
-        { name: 'Turbopuffer', links: [] },
-        { name: 'Ramp', links: [] },
-      ],
-      metrics: [
-        { id: 'm1', label: 'Leads (#)', target: 130, values: {} },
-        { id: 'm2', label: 'Interview Booked (%)', target: '15%', values: {} },
-        { id: 'm3', label: 'Interview Booked (#)', target: 20, values: {} },
-      ],
-    },
-    {
-      id: 'rec-total',
-      title: 'Total',
-      metrics: [
-        { id: 'm1', label: 'Leads (#)', target: null, values: {} },
-        { id: 'm2', label: 'Interview Booked (%)', target: null, values: {} },
-        { id: 'm3', label: 'Interview Booked (#)', target: null, values: {} },
-      ],
-    },
-  ];
-}
-
 function seedDocs() {
   return [
     {
@@ -396,6 +280,13 @@ function seedDocs() {
         { key: 'implementationStrategy', label: 'Implementation Strategy' },
       ],
       entries: [],
+    },
+    {
+      id: 'docs-sales-pitch', title: 'Sales & Pitch Documents',
+      entries: [
+        { id: 'sales-doc-1', title: 'Sales Document', url: '', notes: '' },
+        { id: 'pitch-doc-1', title: 'Pitch Document', url: '', notes: '' },
+      ],
     },
     {
       id: 'docs-internal-ops', title: 'Internal Team Ops Documentation',
@@ -434,17 +325,16 @@ export function seedData() {
     metrics: seedMetrics(),
     okrs: seedOkrs(),
     paidConversions: seedPaidConversions(),
-    recruitment: seedRecruitment(),
     docs: seedDocs(),
+    territories: [],
     inboundLeads: seedInboundLeads(),
     slackWebhookUrl: '',
     pageNotes: {
       documentation: 'All documentation, processes, SOPs, and links will live here. This allows for easy access for all team members and will reduce any dependencies on individuals. Additionally, this will facilitate future onboarding, as new hires can go through all of these documents. Access to particular documents can be adjusted as needed. Anytime a new process or system is created, we will have Claude and Whisper Flow document the process to capture the exact steps.',
+      territoryManagement: 'Tracks each sales territory, its region, and the assigned owner, so coverage and account load are easy to see across the team.',
       roadmap: 'Roadmap section: This allows the team to visualize timelines and deadlines for projects and tasks. It will also help coordinate timelines for multi-team projects. Each task in the roadmap can house information. The dependent and depending tasks in the roadmap will be set to flag conflicts.\n\nOKRs section: This will help keep vision on the end goals as a team. This will also make sure that the team is aligned and can be used as a reference throughout projects.\n\nCalendar section: This will allow the team to view the major dates to consider, such as launches, conferences, and testing. The calendar can also be adjusted to view the team schedule or a person’s schedule with the checkboxes underneath. It will also notify the team of upcoming dates as relevant.',
       metrics: 'This page houses all of the metrics each team assigns itself, all visible in one view. This keeps everyone focused on the goal, or target, they need to hit, and how they are progressing toward it. It gives a single summary view of what is going on across every team and how each is tracking against its own benchmarks.',
-      operations: 'This page shows all team milestones as well as each teammate’s capacity. It also includes team composition, so any changes in a project or shifts in direction can be easily assigned to a teammate who has the capacity for it. Anyone newly onboarded can see who is working on what, what everyone’s capacity looks like, and who they can reach out to for support at any given time.',
       paidConversions: 'All channels are designed to lead to a booked meeting, and then go more granular into demo, pricing negotiation, and sales.\n\nEmail Outbound: This is a campaign to reach out to targets, tracking the funnel from leads and emails sent, to number of replies, to meetings booked. From there, we go more granular into demos, pricing negotiations, and sales.\n\nAds - LinkedIn: These are campaigns on LinkedIn Ads run against specific audience lists, to see whether we are presenting the ad to the right people and whether they are present on LinkedIn. If this channel does not bring a positive CAC, it will be deemed unsuccessful.\n\nAds - Google: These are Google Search ads to make sure we are optimizing for what our ICP is looking for and hitting the right messaging. It needs to produce a positive CAC to be considered successful.\n\nSEO/AEO: This is to support organic growth within the company through search engine and AI engine optimization. It can be further enhanced by LinkedIn posting, as well as Reddit and the newsletter, since AEO pulls from those.\n\nClaude Skill for Posting (LinkedIn and X): This is a set of ten standardized post templates for LinkedIn and X, so branding takes off while requiring less of the team’s time to continuously post on social media to build the brand.\n\nReddit: We have a screen on Reddit that flags any posts related to the value we add or the problems we solve for. That way, someone on the team can reply and guide the conversation toward a demo call. Replies need to be from a real person, as Reddit has very strong defenses against bots.\n\nNewsletter Features: This is to support our AEO by bringing visibility across platforms and many different websites that are not necessarily linked to the main Omnea page, which increases the chances of our name being pulled into AI search results.\n\nDaily Summary: The idea is that all booked meetings, regardless of type, should convert at roughly the same rate. This summary tracks that conversion rate from meeting booked to the next stage.\n\nFor lead generation, there are so few high-quality targets in Canada given the sheer size of our market. I would rather have a list of accounts and reach out to each individual through email, LinkedIn, conference meeting, and targeted ad, one by one, ensuring that each is covered on all four fronts.',
-      recruitment: 'This is to bring top-of-funnel talent towards Omnea.\n\nA note on events: it’s much more interesting to do events in partnership with others, since it has the same impact with much less effort and time spent. For school partnerships, the goal is to create relationships early, so when there is very strong talent, it gets funneled to us quickly.\n\nTo create a successful funnel for Omnea, there need to be multiple long-term relationships put in place. That’s why we’re looking at:\n\n• School partnerships for newcomers\n• Event sponsorships for those already in the ecosystem\n• Event attendance, to really understand who we are getting in front of and whether we are getting in front of the right people — whether that is a potential employee of a future client, or our own future employee\n• Event partnerships, as our ICPs converge\n• Companies to track employees at, as these would be recruiting for more senior roles with the same level of intensity and grit as Omnea\n• The count from overview leads into interview booked, and the delta between them',
     },
     tasks: seedTasks(),
   };
