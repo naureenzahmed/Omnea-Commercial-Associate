@@ -29,7 +29,10 @@ function buildManifest(data) {
       key: 'documentation', label: 'Documentation',
       subsections: data.docs.map((s) => ({ id: s.id, label: s.title })),
     },
-    { key: 'territoryManagement', label: 'Territory Management', subsections: [] },
+    {
+      key: 'territoryManagement', label: 'Territory Management',
+      subsections: data.territoryManagement.map((s) => ({ id: s.id, label: s.title })),
+    },
     { key: 'inboundLeads', label: 'Leads Management', subsections: [] },
     {
       key: 'paidConversions', label: 'Outbound',

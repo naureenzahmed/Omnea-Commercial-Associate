@@ -429,6 +429,62 @@ function seedGtmExperiments() {
   ];
 }
 
+function seedTerritoryManagement() {
+  return [
+    {
+      id: 'territory-prospect-companies', title: 'Prospect Companies',
+      fields: [
+        { key: 'company', label: 'Company' },
+        { key: 'employeeCount', label: 'Number of Employees' },
+        { key: 'industry', label: 'Industry' },
+        { key: 'relevantTeams', label: 'Relevant Teams for Omnea' },
+        { key: 'status', label: 'Status with Company' },
+      ],
+      entries: [],
+    },
+    {
+      id: 'territory-conferences-icp', title: 'Conferences with ICP',
+      fields: [
+        { key: 'conference', label: 'Conference' },
+        { key: 'date', label: 'Date' },
+        { key: 'icpOverlap', label: 'ICP Overlap' },
+        { key: 'notes', label: 'Notes' },
+      ],
+      entries: [],
+    },
+    {
+      id: 'territory-content-consumed-icp', title: 'Content Consumed by ICP',
+      fields: [
+        { key: 'contentType', label: 'Content Type' },
+        { key: 'title', label: 'Title / Topic' },
+        { key: 'source', label: 'Source' },
+        { key: 'notes', label: 'Notes' },
+      ],
+      entries: [],
+    },
+    {
+      id: 'territory-feature-focuses-icp', title: 'Feature Focuses for ICP',
+      fields: [
+        { key: 'feature', label: 'Feature' },
+        { key: 'whyItMatters', label: 'Why It Matters to ICP' },
+        { key: 'priority', label: 'Priority' },
+        { key: 'notes', label: 'Notes' },
+      ],
+      entries: [],
+    },
+    {
+      id: 'territory-feedback-calls-icp', title: 'Feedback Calls from ICP',
+      fields: [
+        { key: 'contact', label: 'Contact' },
+        { key: 'company', label: 'Company' },
+        { key: 'date', label: 'Date' },
+        { key: 'keyTakeaways', label: 'Key Takeaways' },
+      ],
+      entries: [],
+    },
+  ];
+}
+
 function seedInboundLeads() {
   return {
     rows: [],
@@ -450,15 +506,13 @@ export function seedData() {
     okrs: seedOkrs(),
     paidConversions: seedPaidConversions(),
     docs: seedDocs(),
-    territories: [],
-    supplierScreenings: [],
+    territoryManagement: seedTerritoryManagement(),
     inboundLeads: seedInboundLeads(),
-    prospectClientList: [],
     gtmExperiments: seedGtmExperiments(),
     slackWebhookUrl: '',
     pageNotes: {
       documentation: 'All documentation, processes, SOPs, and links will live here. This allows for easy access for all team members and will reduce any dependencies on individuals. Additionally, this will facilitate future onboarding, as new hires can go through all of these documents. Access to particular documents can be adjusted as needed. Anytime a new process or system is created, we will have Claude and Whisper Flow document the process to capture the exact steps.',
-      territoryManagement: 'Tracks each sales territory, its region, and the assigned owner, so coverage and account load are easy to see across the team.',
+      territoryManagement: 'Tracks our ICP: prospect companies, conferences where they show up, content they consume, which features to lead with, and takeaways from feedback calls.',
       gtmExperiments: 'Tracks go-to-market experiments — the hypothesis behind each one, its status, and what was learned.',
       roadmap: 'Roadmap section: This allows the team to visualize timelines and deadlines for projects and tasks. It will also help coordinate timelines for multi-team projects. Each task in the roadmap can house information. The dependent and depending tasks in the roadmap will be set to flag conflicts.\n\nOKRs section: This will help keep vision on the end goals as a team. This will also make sure that the team is aligned and can be used as a reference throughout projects.\n\nCalendar section: This will allow the team to view the major dates to consider, such as launches, conferences, and testing. It will also notify the team of upcoming dates as relevant.\n\nTracked Goals section: This houses all of the metrics each team assigns itself, all visible in one view. This keeps everyone focused on the goal, or target, they need to hit, and how they are progressing toward it.',
       paidConversions: 'All channels are designed to lead to a booked meeting, and then go more granular into demo, pricing negotiation, and sales.\n\nEmail Outbound: This is a campaign to reach out to targets, tracking the funnel from leads and emails sent, to number of replies, to meetings booked. From there, we go more granular into demos, pricing negotiations, and sales.\n\nAds - LinkedIn: These are campaigns on LinkedIn Ads run against specific audience lists, to see whether we are presenting the ad to the right people and whether they are present on LinkedIn. If this channel does not bring a positive CAC, it will be deemed unsuccessful.\n\nAds - Google: These are Google Search ads to make sure we are optimizing for what our ICP is looking for and hitting the right messaging. It needs to produce a positive CAC to be considered successful.\n\nSEO/AEO: This is to support organic growth within the company through search engine and AI engine optimization. It can be further enhanced by LinkedIn posting, as well as Reddit and the newsletter, since AEO pulls from those.\n\nClaude Skill for Posting (LinkedIn and X): This is a set of ten standardized post templates for LinkedIn and X, so branding takes off while requiring less of the team’s time to continuously post on social media to build the brand.\n\nReddit: We have a screen on Reddit that flags any posts related to the value we add or the problems we solve for. That way, someone on the team can reply and guide the conversation toward a demo call. Replies need to be from a real person, as Reddit has very strong defenses against bots.\n\nNewsletter Features: This is to support our AEO by bringing visibility across platforms and many different websites that are not necessarily linked to the main Omnea page, which increases the chances of our name being pulled into AI search results.\n\nDaily Summary: The idea is that all booked meetings, regardless of type, should convert at roughly the same rate. This summary tracks that conversion rate from meeting booked to the next stage.\n\nFor lead generation, there are so few high-quality targets in Canada given the sheer size of our market. I would rather have a list of accounts and reach out to each individual through email, LinkedIn, conference meeting, and targeted ad, one by one, ensuring that each is covered on all four fronts.',
