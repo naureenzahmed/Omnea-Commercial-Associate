@@ -42,13 +42,7 @@ function buildManifest(data) {
         { id: 'roadmap-timeline-section', label: 'Timeline / List / Board' },
         { id: 'roadmap-okr-section', label: 'OKRs' },
         { id: 'roadmap-calendar-section', label: 'Calendar' },
-      ],
-    },
-    {
-      key: 'metrics', label: 'Metrics',
-      subsections: [
-        { id: 'metrics-log', label: 'Monthly Log' },
-        { id: 'metrics-cards', label: 'Tracked Goals' },
+        { id: 'roadmap-tracked-goals', label: 'Tracked Goals' },
       ],
     },
   ];
