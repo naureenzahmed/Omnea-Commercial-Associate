@@ -31,7 +31,7 @@ export function renderInboundLeads(container) {
       <textarea id="leads-notes" class="notes-box" readonly placeholder="No notes yet.">${escapeHtml(tracker.notes || '')}</textarea>
     </div>
     <div class="toolbar">
-      <div class="page-title" style="margin:0;">Inbound Leads</div>
+      <div class="page-title" style="margin:0;">Leads Management</div>
       <button class="btn btn-primary" id="add-lead-btn">+ Add lead</button>
     </div>
     <div class="card" style="overflow-x:auto;">
