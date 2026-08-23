@@ -377,7 +377,12 @@ function seedGtmExperiments() {
         { key: 'membersProportion', label: 'Members Proportion' },
         { key: 'notes', label: 'Notes' },
       ],
-      entries: [],
+      entries: [
+        { id: uid('gtmrow'), event: 'Operator Panels', date: '', location: '', targetDemographic: '', membersProportion: '', notes: 'No product pitch on stage' },
+        { id: uid('gtmrow'), event: 'Dinner', date: '', location: '', targetDemographic: '', membersProportion: '', notes: '' },
+        { id: uid('gtmrow'), event: 'Cocktail', date: '', location: '', targetDemographic: '', membersProportion: '', notes: '' },
+        { id: uid('gtmrow'), event: 'CFO Series', date: '', location: '', targetDemographic: '', membersProportion: '', notes: '' },
+      ],
       formats: ['Operator Panels (no product pitch on stage)', 'Roundtables', 'Dinner', 'Cocktail', 'CFO Leadership Series'],
     },
     {
