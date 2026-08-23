@@ -20,10 +20,20 @@ const SCREENING_FIELDS = [
   { key: 'findings', label: 'Findings / Notes', type: 'text' },
 ];
 
+const PROSPECT_FIELDS = [
+  { key: 'company', label: 'Company' },
+  { key: 'employeeCount', label: 'Number of Employees' },
+  { key: 'industry', label: 'Industry' },
+  { key: 'relevantTeams', label: 'Relevant Teams for Omnea' },
+  { key: 'proposedPositioning', label: 'Proposed Positioning to Target' },
+  { key: 'status', label: 'Status with Company' },
+];
+
 export function renderTerritoryManagement(container) {
   const data = getData();
   const territories = data.territories;
   const screenings = data.supplierScreenings;
+  const prospects = data.prospectClientList;
 
   container.innerHTML = `
     ${notesBoxHtml('territoryManagement')}
@@ -83,6 +93,35 @@ export function renderTerritoryManagement(container) {
         </div>
       ` : '<div class="empty-hint">No screenings yet.</div>'}
     </div>
+
+    <div class="toolbar">
+      <div class="section-label" style="margin:0;">Prospect Client List</div>
+      <button class="btn btn-ghost" id="add-prospect-btn" style="padding:4px 8px;">+ Add prospect</button>
+    </div>
+    <div class="card">
+      ${prospects.length ? `
+        <div class="tracker-scroll">
+          <table class="list-table doc-fields-table">
+            <thead>
+              <tr>
+                ${PROSPECT_FIELDS.map((f) => `<th>${escapeHtml(f.label)}</th>`).join('')}
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              ${prospects.map((p) => `
+                <tr>
+                  ${PROSPECT_FIELDS.map((f) => `
+                    <td><input type="text" class="cell-input prospect-cell" data-row-id="${p.id}" data-field="${f.key}" value="${escapeHtml(p[f.key] || '')}" /></td>
+                  `).join('')}
+                  <td><button class="btn btn-ghost" data-remove-prospect="${p.id}" style="padding:3px 7px;">✕</button></td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      ` : '<div class="empty-hint">No prospects yet.</div>'}
+    </div>
   `;
 
   document.getElementById('add-territory-btn').addEventListener('click', () => {
@@ -131,6 +170,31 @@ export function renderTerritoryManagement(container) {
     btn.addEventListener('click', () => {
       const idx = screenings.findIndex((s) => s.id === btn.dataset.removeScreening);
       if (idx >= 0) screenings.splice(idx, 1);
+      commit();
+      renderTerritoryManagement(container);
+    });
+  });
+
+  document.getElementById('add-prospect-btn').addEventListener('click', () => {
+    const row = { id: uid('prospect') };
+    PROSPECT_FIELDS.forEach((f) => { row[f.key] = ''; });
+    prospects.push(row);
+    commit();
+    renderTerritoryManagement(container);
+  });
+
+  document.querySelectorAll('.prospect-cell').forEach((input) => {
+    input.addEventListener('input', () => {
+      const prospect = prospects.find((p) => p.id === input.dataset.rowId);
+      prospect[input.dataset.field] = input.value;
+      commit();
+    });
+  });
+
+  document.querySelectorAll('[data-remove-prospect]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const idx = prospects.findIndex((p) => p.id === btn.dataset.removeProspect);
+      if (idx >= 0) prospects.splice(idx, 1);
       commit();
       renderTerritoryManagement(container);
     });

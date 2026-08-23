@@ -31,7 +31,6 @@ function buildManifest(data) {
     },
     { key: 'territoryManagement', label: 'Territory Management', subsections: [] },
     { key: 'inboundLeads', label: 'Leads Management', subsections: [] },
-    { key: 'prospectClientList', label: 'Prospect Client List', subsections: [] },
     {
       key: 'paidConversions', label: 'Outbound',
       subsections: data.paidConversions.filter((s) => !s.isIntro).map((s) => ({ id: s.id, label: s.title })),
