@@ -4,6 +4,14 @@ import { uid, escapeHtml } from '../utils.js';
 const SOURCE_TYPES = ['Email', 'LinkedIn Ads', 'Google Ads', 'SEO/AEO', 'Reddit', 'Newsletter', 'Referral', 'Website', 'Conference Discussion', 'Other'];
 const STAGE_OPTIONS = ['', 'New', 'Contacted', 'Demo Booked', 'Demo Completed', 'Negotiation', 'Won', 'Lost'];
 const YES_NO_OPTIONS = ['', 'Yes', 'No'];
+const PRIORITY_OPTIONS = ['', 'High', 'Medium', 'Low'];
+const SIGNAL_OPTIONS = [
+  '',
+  'Newly hired CPO or Head of Procurement',
+  'Coupa/Ariba renewal window',
+  'Funding round or acquisition that spikes supplier count',
+  'New regulatory pressure (DORA, third-party risk rules) on regulated buyers',
+];
 
 const COLUMNS = [
   { key: 'company', label: 'Company', type: 'text' },
@@ -11,6 +19,8 @@ const COLUMNS = [
   { key: 'title', label: 'Title', type: 'text' },
   { key: 'teamsInDiscussion', label: 'Teams in Discussion With', type: 'text' },
   { key: 'internalChampion', label: 'Internal Champion Contact', type: 'text' },
+  { key: 'messagingPriority', label: 'Messaging Priority', type: 'select', options: PRIORITY_OPTIONS },
+  { key: 'buyingSignal', label: 'Signals', type: 'select', options: SIGNAL_OPTIONS },
   { key: 'stage', label: 'Stage', type: 'select', options: STAGE_OPTIONS },
   { key: 'positiveAnswer', label: 'Positive Answer', type: 'select', options: YES_NO_OPTIONS },
   { key: 'demoBookedDate', label: 'Demo Booked Date', type: 'date' },

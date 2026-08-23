@@ -492,7 +492,7 @@ a.doc-title:hover { text-decoration: underline; }
 .cal-filter-team-label .team-dot { flex-shrink: 0; }
 .cal-filter-col .cal-checkbox-row { padding-left: 4px; }
 
-/* ---------- Tracker pages (Paid Conversions) ---------- */
+/* ---------- Tracker pages (Outbound) ---------- */
 .page-intro { color: var(--text-dim); font-size: 13px; line-height: 1.6; }
 .page-intro p:last-child { margin-bottom: 0 !important; }
 
