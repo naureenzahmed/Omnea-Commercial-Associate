@@ -3,6 +3,7 @@ import { uid, todayISO, addDays, daysBetween, fmtDate, escapeHtml, initials } fr
 import { openTaskSidebar } from '../taskSidebar.js';
 import { renderOkrSection } from './okr.js';
 import { renderDeadlineCalendar } from './deadlineCalendar.js';
+import { renderTrackedGoals } from './metrics.js';
 import { notesBoxHtml } from '../notesBox.js';
 import { getSlackWebhookUrl, setSlackWebhookUrl } from '../slackNotify.js';
 
@@ -57,6 +58,10 @@ export function renderRoadmap(container) {
       <div class="page-title" style="margin-bottom: 12px;">Calendar</div>
       <div id="roadmap-calendar-section"></div>
     </div>
+
+    <div style="margin-top: 40px;">
+      <div id="roadmap-tracked-goals"></div>
+    </div>
   `;
 
   container.querySelectorAll('[data-view]').forEach((btn) => {
@@ -88,6 +93,7 @@ export function renderRoadmap(container) {
 
   renderOkrSection(document.getElementById('roadmap-okr-section'));
   renderDeadlineCalendar(document.getElementById('roadmap-calendar-section'));
+  renderTrackedGoals(document.getElementById('roadmap-tracked-goals'));
 }
 
 function cap(s) { return s[0].toUpperCase() + s.slice(1); }

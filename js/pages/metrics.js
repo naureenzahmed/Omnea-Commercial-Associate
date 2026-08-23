@@ -58,6 +58,14 @@ export function renderMetrics(container) {
   renderCards(data);
 }
 
+export function renderTrackedGoals(container) {
+  container.innerHTML = `
+    <div class="section-label">Tracked goals</div>
+    <div class="grid-3" id="metric-cards"></div>
+  `;
+  renderCards(getData());
+}
+
 function renderTable(data, container) {
   const table = document.getElementById('metrics-table');
   const colCount = 2 + data.months.length;
