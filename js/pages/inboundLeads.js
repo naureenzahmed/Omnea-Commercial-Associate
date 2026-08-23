@@ -6,11 +6,11 @@ const STAGE_OPTIONS = ['', 'New', 'Contacted', 'Demo Booked', 'Demo Completed', 
 const YES_NO_OPTIONS = ['', 'Yes', 'No'];
 const PRIORITY_OPTIONS = ['', 'High', 'Medium', 'Low'];
 const SIGNAL_OPTIONS = [
-  '',
   'Newly hired CPO or Head of Procurement',
   'Coupa/Ariba renewal window',
   'Funding round or acquisition that spikes supplier count',
   'New regulatory pressure (DORA, third-party risk rules) on regulated buyers',
+  'Others',
 ];
 
 const COLUMNS = [
@@ -20,7 +20,7 @@ const COLUMNS = [
   { key: 'teamsInDiscussion', label: 'Teams in Discussion With', type: 'text' },
   { key: 'internalChampion', label: 'Internal Champion Contact', type: 'text' },
   { key: 'messagingPriority', label: 'Messaging Priority', type: 'select', options: PRIORITY_OPTIONS },
-  { key: 'buyingSignal', label: 'Signals', type: 'select', options: SIGNAL_OPTIONS },
+  { key: 'buyingSignal', label: 'Signals', type: 'text', list: 'signal-options-list' },
   { key: 'stage', label: 'Stage', type: 'select', options: STAGE_OPTIONS },
   { key: 'positiveAnswer', label: 'Positive Answer', type: 'select', options: YES_NO_OPTIONS },
   { key: 'demoBookedDate', label: 'Demo Booked Date', type: 'date' },
@@ -46,6 +46,9 @@ export function renderInboundLeads(container) {
       <textarea id="leads-notes" class="notes-box" readonly placeholder="No notes yet.">${escapeHtml(tracker.notes || '')}</textarea>
     </div>
     <div class="page-title">Leads Management</div>
+    <datalist id="signal-options-list">
+      ${SIGNAL_OPTIONS.map((o) => `<option value="${escapeHtml(o)}"></option>`).join('')}
+    </datalist>
     <div id="leads-sections" class="stack-16"></div>
   `;
 
@@ -133,5 +136,5 @@ function renderCell(row, col) {
   if (col.type === 'date') {
     return `<input type="date" class="cell-input" data-row-id="${row.id}" data-field="${col.key}" value="${escapeHtml(value)}" />`;
   }
-  return `<input type="text" class="cell-input" data-row-id="${row.id}" data-field="${col.key}" value="${escapeHtml(value)}" />`;
+  return `<input type="text" class="cell-input" data-row-id="${row.id}" data-field="${col.key}" value="${escapeHtml(value)}" ${col.list ? `list="${col.list}"` : ''} />`;
 }
