@@ -9,6 +9,8 @@ const COLUMNS = [
   { key: 'company', label: 'Company', type: 'text' },
   { key: 'userName', label: 'User Name', type: 'text' },
   { key: 'title', label: 'Title', type: 'text' },
+  { key: 'teamsInDiscussion', label: 'Teams in Discussion With', type: 'text' },
+  { key: 'internalChampion', label: 'Internal Champion Contact', type: 'text' },
   { key: 'stage', label: 'Stage', type: 'select', options: STAGE_OPTIONS },
   { key: 'positiveAnswer', label: 'Positive Answer', type: 'select', options: YES_NO_OPTIONS },
   { key: 'demoBookedDate', label: 'Demo Booked Date', type: 'date' },
