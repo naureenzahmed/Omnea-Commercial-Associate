@@ -3,7 +3,6 @@ import { renderCover } from './pages/cover.js';
 import { renderDocumentation } from './pages/documentation.js';
 import { renderTerritoryManagement } from './pages/territoryManagement.js';
 import { renderRoadmap } from './pages/roadmap.js';
-import { renderMetrics } from './pages/metrics.js';
 import { renderPaidConversions } from './pages/paidConversions.js';
 import { renderInboundLeads } from './pages/inboundLeads.js';
 import { renderGtmExperiments } from './pages/gtmExperiments.js';
@@ -16,7 +15,6 @@ const PAGES = {
   paidConversions: { label: 'Outbound', render: renderPaidConversions },
   gtmExperiments: { label: 'GTM Experiments', render: renderGtmExperiments },
   roadmap: { label: 'Roadmap', render: renderRoadmap },
-  metrics: { label: 'Metrics', render: renderMetrics },
 };
 
 function currentRoute() {
