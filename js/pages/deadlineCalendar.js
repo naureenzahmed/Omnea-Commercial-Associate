@@ -5,14 +5,11 @@ const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MONTHS_SPAN = 19; // current month + 18 more
 
 let monthOffset = 0;
-let selectedTeamIds = new Set();
-let selectedPersonIds = new Set();
 
 export function renderDeadlineCalendar(container) {
   const data = getData();
   const allItems = collectItems(data);
-  const filtered = filterItems(allItems, selectedTeamIds, selectedPersonIds);
-  const dueMap = groupByDate(filtered);
+  const dueMap = groupByDate(allItems);
 
   const now = new Date();
   const anchor = { year: now.getFullYear(), month: now.getMonth() };
@@ -41,32 +38,6 @@ export function renderDeadlineCalendar(container) {
       <span><span class="legend-dot" style="background:#0a0a0a;"></span>Key result deadline</span>
       <span><span class="legend-dot" style="background:#dc2626;"></span>Milestone</span>
     </div>
-
-    <div class="cal-filters">
-      <div class="cal-filter-col">
-        <div class="section-label">Teams</div>
-        ${data.teams.map((t) => `
-          <label class="cal-checkbox-row">
-            <input type="checkbox" data-filter-team="${t.id}" ${selectedTeamIds.has(t.id) ? 'checked' : ''} />
-            <span class="team-dot" style="background:${t.color};"></span>${escapeHtml(t.name)}
-          </label>
-        `).join('')}
-      </div>
-      <div class="cal-filter-col">
-        <div class="section-label">Team Members</div>
-        ${data.teams.map((t) => `
-          <div class="cal-filter-team-group">
-            <div class="cal-filter-team-label"><span class="team-dot" style="background:${t.color};"></span>${escapeHtml(t.name)}</div>
-            ${data.people.filter((p) => p.teamId === t.id).map((p) => `
-              <label class="cal-checkbox-row">
-                <input type="checkbox" data-filter-person="${p.id}" ${selectedPersonIds.has(p.id) ? 'checked' : ''} />
-                ${escapeHtml(p.name)}
-              </label>
-            `).join('')}
-          </div>
-        `).join('')}
-      </div>
-    </div>
   `;
 
   document.getElementById('cal-prev').addEventListener('click', () => {
@@ -78,21 +49,6 @@ export function renderDeadlineCalendar(container) {
   document.getElementById('cal-jump').addEventListener('change', (e) => {
     monthOffset = Number(e.target.value);
     renderDeadlineCalendar(container);
-  });
-
-  container.querySelectorAll('[data-filter-team]').forEach((cb) => {
-    cb.addEventListener('change', () => {
-      const id = cb.dataset.filterTeam;
-      if (cb.checked) selectedTeamIds.add(id); else selectedTeamIds.delete(id);
-      renderDeadlineCalendar(container);
-    });
-  });
-  container.querySelectorAll('[data-filter-person]').forEach((cb) => {
-    cb.addEventListener('change', () => {
-      const id = cb.dataset.filterPerson;
-      if (cb.checked) selectedPersonIds.add(id); else selectedPersonIds.delete(id);
-      renderDeadlineCalendar(container);
-    });
   });
 }
 
@@ -141,11 +97,6 @@ function collectItems(data) {
     if (m.date) items.push({ date: m.date, title: m.title, type: 'milestone', teamId: m.teamId || null, assigneeIds: [] });
   });
   return items;
-}
-
-function filterItems(items, teamIds, personIds) {
-  if (!teamIds.size && !personIds.size) return items;
-  return items.filter((it) => (it.teamId && teamIds.has(it.teamId)) || it.assigneeIds.some((id) => personIds.has(id)));
 }
 
 function groupByDate(items) {
