@@ -6,8 +6,6 @@ import { renderRoadmap } from './pages/roadmap.js';
 import { renderMetrics } from './pages/metrics.js';
 import { renderPaidConversions } from './pages/paidConversions.js';
 import { renderInboundLeads } from './pages/inboundLeads.js';
-import { renderConferenceDiscussions } from './pages/conferenceDiscussions.js';
-import { renderColdCalls } from './pages/coldCalls.js';
 import { renderGtmExperiments } from './pages/gtmExperiments.js';
 
 const PAGES = {
@@ -16,8 +14,6 @@ const PAGES = {
   territoryManagement: { label: 'Territory Management', render: renderTerritoryManagement },
   inboundLeads: { label: 'Leads Management', render: renderInboundLeads },
   paidConversions: { label: 'Paid Conversions', render: renderPaidConversions },
-  conferenceDiscussions: { label: 'Conference Discussions', render: renderConferenceDiscussions },
-  coldCalls: { label: 'Cold Calls', render: renderColdCalls },
   gtmExperiments: { label: 'GTM Experiments', render: renderGtmExperiments },
   roadmap: { label: 'Roadmap', render: renderRoadmap },
   metrics: { label: 'Metrics', render: renderMetrics },

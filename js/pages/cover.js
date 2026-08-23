@@ -35,8 +35,6 @@ function buildManifest(data) {
       key: 'paidConversions', label: 'Paid Conversions',
       subsections: data.paidConversions.filter((s) => !s.isIntro).map((s) => ({ id: s.id, label: s.title })),
     },
-    { key: 'conferenceDiscussions', label: 'Conference Discussions', subsections: [] },
-    { key: 'coldCalls', label: 'Cold Calls', subsections: [] },
     { key: 'gtmExperiments', label: 'GTM Experiments', subsections: [] },
     {
       key: 'roadmap', label: 'Roadmap',
