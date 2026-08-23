@@ -310,7 +310,7 @@ function seedGtmExperiments() {
     { id: 'gtm-events-attended', title: 'Events Attended', fields: eventFields, entries: [] },
     { id: 'gtm-events-created', title: 'Events Created', fields: eventFields, entries: [] },
     {
-      id: 'gtm-feedback-discussions', title: 'Feedback Discussions',
+      id: 'gtm-feedback-calls', title: 'Feedback Calls',
       fields: [
         { key: 'topic', label: 'Topic' },
         { key: 'participants', label: 'Participants' },
@@ -323,14 +323,9 @@ function seedGtmExperiments() {
 }
 
 function seedInboundLeads() {
-  const emptyRow = () => ({
-    id: uid('lead'), company: '', userName: '', source: '', title: '', stage: '',
-    positiveAnswer: '', demoBookedDate: '', demoHappenedDate: '', lostLead: '',
-    meetingWithAeDate: '', estimatedQuantity: '', estimatedRevenue: '', note: '',
-  });
   return {
-    rows: [emptyRow(), emptyRow(), emptyRow(), emptyRow(), emptyRow()],
-    notes: 'This page holds all of the leads so they can be consolidated like a CRM. It will be automated with calendars, flags, and emails. This can also connect to HubSpot, which tracks all emails, calendar events, and other communication with each lead. This page consolidates all leads into a single view of what is going on.',
+    rows: [],
+    notes: 'This page holds all of the leads so they can be consolidated like a CRM, grouped by source. It will be automated with calendars, flags, and emails. This can also connect to HubSpot, which tracks all emails, calendar events, and other communication with each lead.',
   };
 }
 
@@ -350,15 +345,11 @@ export function seedData() {
     docs: seedDocs(),
     territories: [],
     inboundLeads: seedInboundLeads(),
-    conferenceDiscussions: [],
-    coldCalls: [],
     gtmExperiments: seedGtmExperiments(),
     slackWebhookUrl: '',
     pageNotes: {
       documentation: 'All documentation, processes, SOPs, and links will live here. This allows for easy access for all team members and will reduce any dependencies on individuals. Additionally, this will facilitate future onboarding, as new hires can go through all of these documents. Access to particular documents can be adjusted as needed. Anytime a new process or system is created, we will have Claude and Whisper Flow document the process to capture the exact steps.',
       territoryManagement: 'Tracks each sales territory, its region, and the assigned owner, so coverage and account load are easy to see across the team.',
-      conferenceDiscussions: 'Log of conversations had at conferences and events, who they were with, and any follow-up that needs to happen.',
-      coldCalls: 'Log of cold calls made, who was reached, and the outcome, so follow-up never falls through the cracks.',
       gtmExperiments: 'Tracks go-to-market experiments — the hypothesis behind each one, its status, and what was learned.',
       roadmap: 'Roadmap section: This allows the team to visualize timelines and deadlines for projects and tasks. It will also help coordinate timelines for multi-team projects. Each task in the roadmap can house information. The dependent and depending tasks in the roadmap will be set to flag conflicts.\n\nOKRs section: This will help keep vision on the end goals as a team. This will also make sure that the team is aligned and can be used as a reference throughout projects.\n\nCalendar section: This will allow the team to view the major dates to consider, such as launches, conferences, and testing. The calendar can also be adjusted to view the team schedule or a person’s schedule with the checkboxes underneath. It will also notify the team of upcoming dates as relevant.',
       metrics: 'This page houses all of the metrics each team assigns itself, all visible in one view. This keeps everyone focused on the goal, or target, they need to hit, and how they are progressing toward it. It gives a single summary view of what is going on across every team and how each is tracking against its own benchmarks.',
