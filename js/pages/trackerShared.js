@@ -83,7 +83,7 @@ function renderSection(s, weeks) {
                 <th class="tracker-sticky-col">Metric</th>
                 <th>Notes</th>
                 <th>Target</th>
-                ${weeks.map((w) => `<th class="tracker-week-th ${w.isCurrent ? 'current-week' : ''}">${escapeHtml(w.label)}</th>`).join('')}
+                ${(s.columns || weeks).map((w) => `<th class="tracker-week-th ${w.isCurrent ? 'current-week' : ''}">${escapeHtml(w.label)}</th>`).join('')}
                 <th></th>
               </tr>
             </thead>
@@ -93,7 +93,7 @@ function renderSection(s, weeks) {
                   <td class="tracker-sticky-col">${escapeHtml(m.label)}</td>
                   <td class="tracker-note">${escapeHtml(m.note || '')}</td>
                   <td class="tracker-target">${m.target ?? '—'}</td>
-                  ${weeks.map((w) => `
+                  ${(s.columns || weeks).map((w) => `
                     <td class="tracker-week-td ${w.isCurrent ? 'current-week' : ''}">
                       <input type="text" inputmode="decimal" class="tracker-input" data-metric="${s.id}|${m.id}|${w.key}" value="${escapeHtml(m.values?.[w.key] ?? '')}" />
                     </td>

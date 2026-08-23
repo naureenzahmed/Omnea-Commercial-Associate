@@ -160,6 +160,7 @@ function seedPaidConversions() {
       title: 'Ads - LinkedIn',
       metrics: [
         { id: 'm1', label: 'Spend', target: 100, values: {} },
+        { id: 'm1b', label: 'Lead List Number', target: null, values: {} },
         { id: 'm2', label: 'CTR creative 1', target: 100, values: {} },
         { id: 'm3', label: 'CTR creative 2', target: 100, values: {} },
         { id: 'm4', label: 'CTR creative 3', target: 100, values: {} },
@@ -172,6 +173,34 @@ function seedPaidConversions() {
     {
       id: 'pc-google',
       title: 'Ads - Google',
+      metrics: [
+        { id: 'm1', label: 'Spend', target: 100, values: {} },
+        { id: 'm2', label: 'CTR ad group 1', target: 100, values: {} },
+        { id: 'm3', label: 'CTR ad group 2', target: 100, values: {} },
+        { id: 'm4', label: 'CTR ad group 3', target: 100, values: {} },
+        { id: 'm5', label: 'CTR ad group 4', target: 100, values: {} },
+        { id: 'm6', label: 'CTR ad group 5', target: 100, values: {} },
+        { id: 'm7', label: 'Cost per Meeting', target: 'Under $4', values: {} },
+        { id: 'm8', label: '# Meeting Booked', target: 15, values: {} },
+      ],
+    },
+    {
+      id: 'pc-meta',
+      title: 'Ads - Meta',
+      metrics: [
+        { id: 'm1', label: 'Spend', target: 100, values: {} },
+        { id: 'm2', label: 'CTR ad group 1', target: 100, values: {} },
+        { id: 'm3', label: 'CTR ad group 2', target: 100, values: {} },
+        { id: 'm4', label: 'CTR ad group 3', target: 100, values: {} },
+        { id: 'm5', label: 'CTR ad group 4', target: 100, values: {} },
+        { id: 'm6', label: 'CTR ad group 5', target: 100, values: {} },
+        { id: 'm7', label: 'Cost per Meeting', target: 'Under $4', values: {} },
+        { id: 'm8', label: '# Meeting Booked', target: 15, values: {} },
+      ],
+    },
+    {
+      id: 'pc-chatgpt',
+      title: 'Ads - ChatGPT',
       metrics: [
         { id: 'm1', label: 'Spend', target: 100, values: {} },
         { id: 'm2', label: 'CTR ad group 1', target: 100, values: {} },
@@ -221,13 +250,21 @@ function seedPaidConversions() {
     },
     {
       id: 'pc-newsletter',
-      title: 'Newsletter Features',
+      title: 'Features',
+      columns: [
+        { key: 'g2-leader-procurement', label: 'G2 Spring 2026 Leader in Procurement Orchestration' },
+        { key: 'g2-supplier-relationship', label: 'Supplier Relationship Management' },
+        { key: 'g2-best-relationship', label: 'Best Relationship' },
+        { key: 'g2-best-support-easiest', label: 'Best Support and Easiest to Use' },
+        { key: 'gartner-peer-insights', label: 'Gartner Peer Insights' },
+      ],
       metrics: [
         { id: 'm1', label: 'Number of Posts', target: 1, values: {} },
         { id: 'm2', label: 'Audience demographic', target: 'Engineer Lead, Head of Product, Product Managers, Engineers, Developers...', values: {} },
         { id: 'm3', label: 'Number of views', target: 200, values: {} },
         { id: 'm4', label: '# Replies', target: 50, values: {} },
         { id: 'm5', label: '# Meeting Booked', target: 10, values: {} },
+        { id: 'm6', label: 'Date of Issue', target: null, values: {} },
       ],
     },
     {
@@ -236,6 +273,28 @@ function seedPaidConversions() {
       metrics: [
         { id: 'm1', label: 'Spend', target: 'Under $100', values: {} },
         { id: 'm2', label: '# Meeting Booked', target: 53, values: {} },
+      ],
+    },
+    {
+      id: 'pc-gifts',
+      title: 'Gifts',
+      metrics: [
+        { id: 'm1', label: 'Gift Type', target: null, values: {} },
+        { id: 'm2', label: 'Spend per Unit', target: null, values: {} },
+        { id: 'm3', label: 'Meeting Booked', target: null, values: {} },
+        { id: 'm4', label: 'Conversion Rate', target: null, values: {} },
+      ],
+    },
+    {
+      id: 'pc-review-sites',
+      title: 'Review Sites & Channels',
+      metrics: [
+        { id: 'm1', label: 'G2 Reviews', target: null, values: {} },
+        { id: 'm2', label: 'Capterra Reviews', target: null, values: {} },
+        { id: 'm3', label: 'TrustRadius Reviews', target: null, values: {} },
+        { id: 'm4', label: 'Gartner Peer Insights Reviews', target: null, values: {} },
+        { id: 'm5', label: 'Average Rating', target: null, values: {} },
+        { id: 'm6', label: '# Meeting Booked', target: null, values: {} },
       ],
     },
     {
@@ -308,7 +367,19 @@ function seedGtmExperiments() {
   ];
   return [
     { id: 'gtm-events-attended', title: 'Events Attended', fields: eventFields, entries: [] },
-    { id: 'gtm-events-created', title: 'Events Created', fields: eventFields, entries: [] },
+    {
+      id: 'gtm-events-created', title: 'Events Created',
+      fields: [
+        { key: 'event', label: 'Event' },
+        { key: 'date', label: 'Date' },
+        { key: 'location', label: 'Event Location' },
+        { key: 'targetDemographic', label: 'Target Demographic' },
+        { key: 'membersProportion', label: 'Members Proportion' },
+        { key: 'notes', label: 'Notes' },
+      ],
+      entries: [],
+      formats: ['Operator Panels (no product pitch on stage)', 'Roundtables', 'Dinner', 'Cocktail', 'CFO Leadership Series'],
+    },
     {
       id: 'gtm-feedback-calls', title: 'Feedback Calls',
       fields: [
@@ -318,6 +389,42 @@ function seedGtmExperiments() {
         { key: 'notes', label: 'Notes' },
       ],
       entries: [],
+    },
+    {
+      id: 'gtm-co-hosts', title: 'Co-hosts',
+      note: 'People we need to build relationship to add credibility to Omnea in this industry',
+      fields: [
+        { key: 'name', label: 'Name' },
+        { key: 'organization', label: 'Organization' },
+        { key: 'relationshipStatus', label: 'Relationship Status' },
+        { key: 'notes', label: 'Notes' },
+      ],
+      entries: [],
+    },
+    {
+      id: 'gtm-partnerships', title: 'Partnerships',
+      fields: [
+        { key: 'partner', label: 'Partner' },
+        { key: 'customersPartnership', label: 'Customers Partnership' },
+        { key: 'icpOverlapPartnership', label: 'ICP Overlap Partnership' },
+        { key: 'notes', label: 'Notes' },
+      ],
+      entries: [],
+    },
+    {
+      id: 'gtm-integrations', title: 'Integrations',
+      columns: [
+        { key: 'dow-jones', label: 'Dow Jones' },
+        { key: 'amazon-business', label: 'Amazon Business' },
+        { key: 'shopify', label: 'Shopify' },
+        { key: 'chatgpt', label: 'ChatGPT' },
+        { key: 'claude', label: 'Claude' },
+        { key: 'copilot', label: 'Copilot' },
+      ],
+      metrics: [
+        { id: 'row1', label: 'Status', values: {} },
+        { id: 'row2', label: 'Notes', values: {} },
+      ],
     },
   ];
 }
@@ -344,12 +451,15 @@ export function seedData() {
     paidConversions: seedPaidConversions(),
     docs: seedDocs(),
     territories: [],
+    supplierScreenings: [],
     inboundLeads: seedInboundLeads(),
+    prospectClientList: [],
     gtmExperiments: seedGtmExperiments(),
     slackWebhookUrl: '',
     pageNotes: {
       documentation: 'All documentation, processes, SOPs, and links will live here. This allows for easy access for all team members and will reduce any dependencies on individuals. Additionally, this will facilitate future onboarding, as new hires can go through all of these documents. Access to particular documents can be adjusted as needed. Anytime a new process or system is created, we will have Claude and Whisper Flow document the process to capture the exact steps.',
       territoryManagement: 'Tracks each sales territory, its region, and the assigned owner, so coverage and account load are easy to see across the team.',
+      prospectClientList: 'Tracks target companies worth prospecting — size, industry, which Omnea teams are relevant to them, and where things stand.',
       gtmExperiments: 'Tracks go-to-market experiments — the hypothesis behind each one, its status, and what was learned.',
       roadmap: 'Roadmap section: This allows the team to visualize timelines and deadlines for projects and tasks. It will also help coordinate timelines for multi-team projects. Each task in the roadmap can house information. The dependent and depending tasks in the roadmap will be set to flag conflicts.\n\nOKRs section: This will help keep vision on the end goals as a team. This will also make sure that the team is aligned and can be used as a reference throughout projects.\n\nCalendar section: This will allow the team to view the major dates to consider, such as launches, conferences, and testing. The calendar can also be adjusted to view the team schedule or a person’s schedule with the checkboxes underneath. It will also notify the team of upcoming dates as relevant.',
       metrics: 'This page houses all of the metrics each team assigns itself, all visible in one view. This keeps everyone focused on the goal, or target, they need to hit, and how they are progressing toward it. It gives a single summary view of what is going on across every team and how each is tracking against its own benchmarks.',
