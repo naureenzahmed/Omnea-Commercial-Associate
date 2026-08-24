@@ -416,10 +416,11 @@ function seedGtmExperiments() {
     {
       id: 'gtm-partnerships', title: 'Partnerships',
       fields: [
-        { key: 'partner', label: 'Partner' },
-        { key: 'customersPartnership', label: 'Customers Partnership' },
-        { key: 'icpOverlapPartnership', label: 'ICP Overlap Partnership' },
-        { key: 'notes', label: 'Notes' },
+        { key: 'partneringOrganization', label: 'Partnering Organization' },
+        { key: 'goalOfPartnership', label: 'Goal of Partnership for Omnea' },
+        { key: 'partnershipContingencies', label: 'Partnership Contingencies' },
+        { key: 'linkToPartnershipAgreement', label: 'Link to Partnership Agreement' },
+        { key: 'expectedLeadsCreated', label: 'Expected Leads Created' },
       ],
       entries: [],
     },
