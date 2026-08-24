@@ -37,8 +37,6 @@ const COLUMNS = [
   { key: 'demoHappenedDate', label: 'Demo Happened Date', type: 'date' },
   { key: 'lostLead', label: 'Lost Lead', type: 'select', options: YES_NO_OPTIONS },
   { key: 'meetingWithAeDate', label: 'Meeting with AE date', type: 'date' },
-  { key: 'estimatedQuantity', label: 'Estimated Quantity', type: 'text' },
-  { key: 'estimatedRevenue', label: 'Estimated Revenue', type: 'text' },
   { key: 'note', label: 'Note', type: 'text' },
 ];
 
