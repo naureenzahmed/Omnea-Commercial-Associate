@@ -437,6 +437,8 @@ function seedGtmExperiments() {
       metrics: [
         { id: 'row1', label: 'Status', values: {} },
         { id: 'row2', label: 'Notes', values: {} },
+        { id: 'row3', label: 'Goal of Integration', values: {} },
+        { id: 'row4', label: 'Expected Leads Created', values: {} },
       ],
     },
   ];
