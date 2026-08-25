@@ -344,15 +344,6 @@ function seedDocs() {
         { id: 'pitch-doc-1', title: 'Pitch Document', url: '', notes: '' },
       ],
     },
-    {
-      id: 'docs-internal-ops', title: 'Internal Team Ops Documentation',
-      entries: [
-        { id: 'ops-doc-1', title: 'Insurance login process', url: '', notes: '' },
-        { id: 'ops-doc-2', title: 'Expense login process', url: '', notes: '' },
-        { id: 'ops-doc-3', title: 'Onboarding checklist', url: '', notes: '' },
-      ],
-    },
-    { id: 'docs-eng', title: 'Eng Processes and Documentation', entries: [] },
   ];
 }
 
