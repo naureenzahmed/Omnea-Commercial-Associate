@@ -131,7 +131,7 @@ function render(taskId) {
         </div>
 
         <div class="ts-field">
-          <div class="ts-field-label">Team</div>
+          <div class="ts-field-label">Objective</div>
           <select id="ts-team">
             ${data.teams.map((t) => `<option value="${t.id}" ${t.id === task.teamId ? 'selected' : ''}>${t.name}</option>`).join('')}
           </select>
