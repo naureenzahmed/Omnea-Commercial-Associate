@@ -342,6 +342,9 @@ function seedDocs() {
       entries: [
         { id: 'sales-doc-1', title: 'Sales Document', url: '', notes: '' },
         { id: 'pitch-doc-1', title: 'Pitch Document', url: '', notes: '' },
+        { id: 'demos-doc-1', title: 'Demos Documents', url: '', notes: '' },
+        { id: 'marketing-materials-1', title: 'Marketing Materials', url: '', notes: '' },
+        { id: 'one-pager-1', title: 'One Pager', url: '', notes: '' },
       ],
     },
   ];
