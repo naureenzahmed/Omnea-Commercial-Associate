@@ -319,7 +319,7 @@ function seedDocs() {
       entries: [],
     },
     {
-      id: 'docs-tofu', title: 'Top-of-Funnel',
+      id: 'docs-tofu', title: 'Set Up Instructions',
       entries: [
         { id: 'tofu-1', title: 'Setting up HubSpot sequences', url: '', notes: '' },
         { id: 'tofu-2', title: 'Setting up HeyReach sequences', url: '', notes: '' },
@@ -329,15 +329,6 @@ function seedDocs() {
       ],
     },
     {
-      id: 'docs-bofu', title: 'Bottom-of-Funnel',
-      fields: [
-        { key: 'pricingDoc', label: 'Pricing Doc' },
-        { key: 'title', label: 'Title' },
-        { key: 'implementationStrategy', label: 'Implementation Strategy' },
-      ],
-      entries: [],
-    },
-    {
       id: 'docs-sales-pitch', title: 'Sales & Pitch Documents',
       entries: [
         { id: 'sales-doc-1', title: 'Sales Document', url: '', notes: '' },
@@ -345,6 +336,24 @@ function seedDocs() {
         { id: 'demos-doc-1', title: 'Demos Documents', url: '', notes: '' },
         { id: 'marketing-materials-1', title: 'Marketing Materials', url: '', notes: '' },
         { id: 'one-pager-1', title: 'One Pager', url: '', notes: '' },
+      ],
+    },
+    {
+      id: 'docs-ads-materials', title: 'Ads Materials',
+      entries: [
+        { id: 'ad-creatives-google', title: 'Ad Creatives - Google', url: '', notes: '' },
+        { id: 'ad-creatives-meta', title: 'Ad Creatives - Meta', url: '', notes: '' },
+        { id: 'ad-creatives-chatgpt', title: 'Ad Creatives - ChatGPT', url: '', notes: '' },
+        { id: 'ad-creatives-linkedin', title: 'Ad Creatives - LinkedIn', url: '', notes: '' },
+      ],
+    },
+    {
+      id: 'docs-ads-audiences', title: 'Ads Audiences Lists',
+      entries: [
+        { id: 'ad-audience-google', title: 'Google', url: '', notes: '' },
+        { id: 'ad-audience-meta', title: 'Meta', url: '', notes: '' },
+        { id: 'ad-audience-chatgpt', title: 'ChatGPT', url: '', notes: '' },
+        { id: 'ad-audience-linkedin', title: 'LinkedIn', url: '', notes: '' },
       ],
     },
   ];
