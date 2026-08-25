@@ -250,7 +250,7 @@ function seedPaidConversions() {
     },
     {
       id: 'pc-newsletter',
-      title: 'Features',
+      title: 'New/Blog Features',
       columns: [
         { key: 'g2-leader-procurement', label: 'G2 Spring 2026 Leader in Procurement Orchestration' },
         { key: 'g2-supplier-relationship', label: 'Supplier Relationship Management' },
@@ -265,14 +265,6 @@ function seedPaidConversions() {
         { id: 'm4', label: '# Replies', target: 50, values: {} },
         { id: 'm5', label: '# Meeting Booked', target: 10, values: {} },
         { id: 'm6', label: 'Date of Issue', target: null, values: {} },
-      ],
-    },
-    {
-      id: 'pc-daily-summary',
-      title: 'Daily Summary',
-      metrics: [
-        { id: 'm1', label: 'Spend', target: 'Under $100', values: {} },
-        { id: 'm2', label: '# Meeting Booked', target: 53, values: {} },
       ],
     },
     {
@@ -304,6 +296,14 @@ function seedPaidConversions() {
         { id: 'm1', label: 'Demo Calls Booked', target: null, values: {} },
         { id: 'm2', label: 'Pricing Negotiations', target: null, values: {} },
         { id: 'm3', label: 'Sales', target: null, values: {} },
+      ],
+    },
+    {
+      id: 'pc-daily-summary',
+      title: 'Daily Summary',
+      metrics: [
+        { id: 'm1', label: 'Spend', target: 'Under $100', values: {} },
+        { id: 'm2', label: '# Meeting Booked', target: 53, values: {} },
       ],
     },
   ];

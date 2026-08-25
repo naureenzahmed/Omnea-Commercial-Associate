@@ -1,6 +1,6 @@
 import { seedData } from './seed.js';
 
-const STORAGE_KEY = 'chiefOfStaffData.v29';
+const STORAGE_KEY = 'chiefOfStaffData.v30';
 
 let data = load();
 
