@@ -363,6 +363,9 @@ function seedGtmExperiments() {
   const eventFields = [
     { key: 'event', label: 'Event' },
     { key: 'date', label: 'Date' },
+    { key: 'goalOfEvent', label: 'Goal of the Event' },
+    { key: 'expectedLeadsCreated', label: 'Expected Leads Created' },
+    { key: 'leadTargetListLink', label: 'Lead Target List Link' },
     { key: 'notes', label: 'Notes' },
   ];
   return [
