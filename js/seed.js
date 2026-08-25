@@ -319,7 +319,7 @@ function seedDocs() {
       entries: [],
     },
     {
-      id: 'docs-tofu', title: 'Top-of-Funnel',
+      id: 'docs-tofu', title: 'Set Up Instructions',
       entries: [
         { id: 'tofu-1', title: 'Setting up HubSpot sequences', url: '', notes: '' },
         { id: 'tofu-2', title: 'Setting up HeyReach sequences', url: '', notes: '' },
@@ -327,15 +327,6 @@ function seedDocs() {
         { id: 'tofu-4', title: 'Setting up LinkedIn ads', url: '', notes: '' },
         { id: 'tofu-5', title: 'Setting up Meta ads', url: '', notes: '' },
       ],
-    },
-    {
-      id: 'docs-bofu', title: 'Bottom-of-Funnel',
-      fields: [
-        { key: 'pricingDoc', label: 'Pricing Doc' },
-        { key: 'title', label: 'Title' },
-        { key: 'implementationStrategy', label: 'Implementation Strategy' },
-      ],
-      entries: [],
     },
     {
       id: 'docs-sales-pitch', title: 'Sales & Pitch Documents',
