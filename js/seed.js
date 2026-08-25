@@ -326,6 +326,7 @@ function seedDocs() {
         { id: 'tofu-3', title: 'Setting up Google Ads', url: '', notes: '' },
         { id: 'tofu-4', title: 'Setting up LinkedIn ads', url: '', notes: '' },
         { id: 'tofu-5', title: 'Setting up Meta ads', url: '', notes: '' },
+        { id: 'tofu-6', title: 'Setting up ChatGPT Ads', url: '', notes: '' },
       ],
     },
     {

@@ -6,7 +6,7 @@ export function renderOkrSection(container) {
 
   const groups = [
     { teamId: null, label: 'Sector Objectives', color: null },
-    ...data.teams.map((t) => ({ teamId: t.id, label: t.name, color: t.color })),
+    ...data.teams.map((t) => ({ teamId: t.id, label: t.name.replace(/^Team\b/, 'Objective'), color: t.color })),
   ];
 
   container.innerHTML = `
