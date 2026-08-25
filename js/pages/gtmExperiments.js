@@ -54,6 +54,20 @@ function renderSection(s) {
           </table>
         </div>
       ` : '<div class="empty-hint">No entries yet.</div>'}
+      ${renderHypothesisAndLessons(s)}
+    </div>
+  `;
+}
+
+function renderHypothesisAndLessons(s) {
+  return `
+    <div style="margin-top:16px;">
+      <div class="section-label">Hypothesis</div>
+      <textarea class="notes-box" data-hypothesis="${s.id}" placeholder="What do we expect, and why?">${escapeHtml(s.hypothesis || '')}</textarea>
+    </div>
+    <div style="margin-top:12px;">
+      <div class="section-label">Lessons Learned</div>
+      <textarea class="notes-box" data-lessons="${s.id}" placeholder="What did we learn?">${escapeHtml(s.lessonsLearned || '')}</textarea>
     </div>
   `;
 }
@@ -90,6 +104,7 @@ function renderMatrixSection(s) {
           </table>
         </div>
       ` : '<div class="empty-hint">No rows yet.</div>'}
+      ${renderHypothesisAndLessons(s)}
     </div>
   `;
 }
@@ -153,6 +168,22 @@ function wireEvents(container, sections) {
       section.metrics = section.metrics.filter((m) => m.id !== rowId);
       commit();
       renderGtmExperiments(container);
+    });
+  });
+
+  document.querySelectorAll('[data-hypothesis]').forEach((ta) => {
+    ta.addEventListener('input', () => {
+      const section = sections.find((s) => s.id === ta.dataset.hypothesis);
+      section.hypothesis = ta.value;
+      commit();
+    });
+  });
+
+  document.querySelectorAll('[data-lessons]').forEach((ta) => {
+    ta.addEventListener('input', () => {
+      const section = sections.find((s) => s.id === ta.dataset.lessons);
+      section.lessonsLearned = ta.value;
+      commit();
     });
   });
 }

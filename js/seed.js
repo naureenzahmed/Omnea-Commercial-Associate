@@ -394,17 +394,6 @@ function seedGtmExperiments() {
       formats: ['Operator Panels (no product pitch on stage)', 'Roundtables', 'Dinner', 'Cocktail', 'CFO Leadership Series'],
     },
     {
-      id: 'gtm-feedback-calls', title: 'Feedback Calls',
-      fields: [
-        { key: 'topic', label: 'Topic' },
-        { key: 'participants', label: 'Participants' },
-        { key: 'date', label: 'Date' },
-        { key: 'intentToBuy', label: 'Intent to Buy' },
-        { key: 'notes', label: 'Notes' },
-      ],
-      entries: [],
-    },
-    {
       id: 'gtm-co-hosts', title: 'Co-hosts',
       note: 'People we need to build relationship to add credibility to Omnea in this industry',
       fields: [
