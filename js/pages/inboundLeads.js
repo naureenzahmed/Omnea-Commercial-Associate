@@ -1,7 +1,11 @@
 import { getData, commit } from '../store.js';
 import { uid, escapeHtml } from '../utils.js';
 
-const SOURCE_TYPES = ['Email', 'LinkedIn Ads', 'Google Ads', 'SEO/AEO', 'Reddit', 'Newsletter', 'Referral', 'Website', 'Conference Discussion', 'Other'];
+export const SOURCE_TYPES = ['Email', 'LinkedIn Ads', 'Google Ads', 'SEO/AEO', 'Reddit', 'Newsletter', 'Referral', 'Website', 'Conference Discussion', 'Other'];
+
+export function sourceSectionId(source) {
+  return `leads-${source.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`;
+}
 const STAGE_OPTIONS = ['', 'New', 'Contacted', 'Demo Booked', 'Demo Completed', 'Negotiation', 'Won', 'Lost'];
 const YES_NO_OPTIONS = ['', 'Yes', 'No'];
 const NEED_PRIORITY_OPTIONS = [
@@ -71,7 +75,7 @@ function renderSourceSection(tracker, source, known) {
     : tracker.rows.filter((r) => r.source === source);
 
   return `
-    <div class="card">
+    <div class="card" id="${sourceSectionId(source)}">
       <div class="toolbar" style="margin-bottom:6px;">
         <h4 style="margin:0;">${escapeHtml(source)}</h4>
         <button class="btn btn-ghost" data-add-lead="${escapeHtml(source)}" style="padding:4px 8px;">+ Add lead</button>
