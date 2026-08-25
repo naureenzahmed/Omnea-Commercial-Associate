@@ -6,7 +6,7 @@ export const SOURCE_TYPES = ['Email', 'LinkedIn Ads', 'Google Ads', 'SEO/AEO', '
 export function sourceSectionId(source) {
   return `leads-${source.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`;
 }
-const STAGE_OPTIONS = ['', 'New', 'Contacted', 'Demo Booked', 'Demo Completed', 'Negotiation', 'Won', 'Lost'];
+const STAGE_OPTIONS = ['', 'New', 'Contacted', 'Positive Answer', 'Demo Booked', 'Demo Completed', 'Negotiation', 'Won', 'Lost'];
 const NEED_PRIORITY_OPTIONS = [
   '',
   'Process Standardization',
