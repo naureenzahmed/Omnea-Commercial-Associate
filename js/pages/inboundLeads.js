@@ -6,8 +6,7 @@ export const SOURCE_TYPES = ['Email', 'LinkedIn Ads', 'Google Ads', 'SEO/AEO', '
 export function sourceSectionId(source) {
   return `leads-${source.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`;
 }
-const STAGE_OPTIONS = ['', 'New', 'Contacted', 'Demo Booked', 'Demo Completed', 'Negotiation', 'Won', 'Lost'];
-const YES_NO_OPTIONS = ['', 'Yes', 'No'];
+const STAGE_OPTIONS = ['', 'New', 'Contacted', 'Positive Answer', 'Demo Booked', 'Demo Completed', 'Negotiation', 'Won', 'Lost'];
 const NEED_PRIORITY_OPTIONS = [
   '',
   'Process Standardization',
@@ -28,7 +27,6 @@ const SIGNAL_OPTIONS = [
 
 const COLUMNS = [
   { key: 'company', label: 'Company', type: 'text' },
-  { key: 'userName', label: 'User Name', type: 'text' },
   { key: 'title', label: 'Title', type: 'text' },
   { key: 'teamsInDiscussion', label: 'Teams in Discussion With', type: 'text' },
   { key: 'internalChampion', label: 'Internal Champion Contact', type: 'text' },
@@ -36,11 +34,9 @@ const COLUMNS = [
   { key: 'needPriorityOther', label: 'Need Priority (Other)', type: 'text' },
   { key: 'buyingSignal', label: 'Signals', type: 'text', list: 'signal-options-list' },
   { key: 'stage', label: 'Stage', type: 'select', options: STAGE_OPTIONS },
-  { key: 'positiveAnswer', label: 'Positive Answer', type: 'select', options: YES_NO_OPTIONS },
   { key: 'demoBookedDate', label: 'Demo Booked Date', type: 'date' },
   { key: 'demoHappenedDate', label: 'Demo Happened Date', type: 'date' },
-  { key: 'lostLead', label: 'Lost Lead', type: 'select', options: YES_NO_OPTIONS },
-  { key: 'meetingWithAeDate', label: 'Meeting with AE date', type: 'date' },
+  { key: 'meetingWithAeDate', label: 'Meeting for Sales', type: 'date' },
   { key: 'note', label: 'Note', type: 'text' },
 ];
 
