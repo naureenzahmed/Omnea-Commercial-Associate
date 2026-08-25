@@ -347,6 +347,24 @@ function seedDocs() {
         { id: 'one-pager-1', title: 'One Pager', url: '', notes: '' },
       ],
     },
+    {
+      id: 'docs-ads-materials', title: 'Ads Materials',
+      entries: [
+        { id: 'ad-creatives-google', title: 'Ad Creatives - Google', url: '', notes: '' },
+        { id: 'ad-creatives-meta', title: 'Ad Creatives - Meta', url: '', notes: '' },
+        { id: 'ad-creatives-chatgpt', title: 'Ad Creatives - ChatGPT', url: '', notes: '' },
+        { id: 'ad-creatives-linkedin', title: 'Ad Creatives - LinkedIn', url: '', notes: '' },
+      ],
+    },
+    {
+      id: 'docs-ads-audiences', title: 'Ads Audiences Lists',
+      entries: [
+        { id: 'ad-audience-google', title: 'Google', url: '', notes: '' },
+        { id: 'ad-audience-meta', title: 'Meta', url: '', notes: '' },
+        { id: 'ad-audience-chatgpt', title: 'ChatGPT', url: '', notes: '' },
+        { id: 'ad-audience-linkedin', title: 'LinkedIn', url: '', notes: '' },
+      ],
+    },
   ];
 }
 
